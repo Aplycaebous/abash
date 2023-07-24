@@ -1,6 +1,7 @@
 import 'package:abash/description.dart';
 import 'package:abash/footer_customer.dart';
 import 'package:abash/footer_owner.dart';
+import 'package:abash/image_slider.dart';
 import 'package:flutter/material.dart';
 
 
@@ -73,9 +74,17 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
       ),
       body:Stack(children: [
+
         Padding(
-          padding: const EdgeInsets.only(left: 16.0), // Add a left margin of 16 pixels
-          child: Description(),
+          padding: const EdgeInsets.only(left: 16.0, right: 10.0), // Add a left margin of 16 pixels
+
+          child: Column(
+            children: [
+              ImageSlider(),
+              Description(),
+            ],
+          ),
+
         ),
         const FooterCustomer(),
       ],)
