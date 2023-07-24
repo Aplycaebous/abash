@@ -2,6 +2,7 @@ import 'package:abash/description.dart';
 import 'package:abash/footer_customer.dart';
 import 'package:abash/footer_owner.dart';
 import 'package:abash/property_image_box.dart';
+import 'package:abash/property_image_slider.dart';
 import 'package:abash/property_mini_slider_image.dart';
 import 'package:flutter/material.dart';
 
@@ -38,6 +39,15 @@ class _MyHomePageState extends State<MyHomePage> {
       isIconColored = !isIconColored;
     });
   }
+
+  List<String> imageUrls = [
+    'assets/images/image 2.png',
+    'assets/images/image 7.png',
+    'assets/images/image 10.png',
+    'assets/images/image 9.png',
+  ];
+
+
 
 
 
@@ -83,6 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               PropertyImageBox(imageUrl: "assets/images/image 7.png"),
               PropertySliderImageBox(imageUrl: "assets/images/image 7.png"),
+              // PropertyImageSlider(imageUrls: imageUrls),
               Description(),
             ],
           ),
