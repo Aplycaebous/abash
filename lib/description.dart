@@ -7,7 +7,9 @@ class Description extends StatelessWidget{
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        SizedBox(height: 15),
         Text("Jahangir Villa",style: TextStyle(color: Colors.blueAccent,fontSize: 18.0)),
+        SizedBox(height: 15),
         Text("Block 12, Road 18, Dhanmondi, Dhaka",style: TextStyle(color: Colors.black,fontSize: 14.0)),
         Text("5,800 Square feet",style: TextStyle(color: Colors.grey,fontSize: 15)),
         Padding(padding: EdgeInsets.only(left:0,right:0,top:4,bottom:4),child:Row(

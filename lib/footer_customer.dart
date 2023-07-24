@@ -21,28 +21,35 @@ class FooterCustomer extends StatelessWidget{
         ),
         child: Center(
           child: Padding(
-              padding:const EdgeInsets.only(left: 12,top:12,right: 12,bottom: 12),
+              padding:const EdgeInsets.only(left: 12,top:12,right: 6,bottom: 12),
               child:Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    '55,000 BDT / per month',
-                    style: TextStyle(color:Colors.white,fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(width: 8),
-                  OutlinedButton(
-                    onPressed: null,
-                    style: OutlinedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          side: const BorderSide(color: Colors.black, width: 2), // Add a border here
-                        )
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(left:10,right:10),
-                      child: Text('Edit',style: TextStyle(fontSize:20,color: Colors.black)),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child:Text(
+                      '55,000 BDT / per month',
+                      style: TextStyle(color:Colors.white,fontSize: 22, fontWeight: FontWeight.bold),
                     ),
                   ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: OutlinedButton(
+                      onPressed: null,
+                      style: OutlinedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            side: const BorderSide(color: Colors.black, width: 2), // Add a border here
+                          )
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.only(left:5,right:5),
+                        child: Text('Edit',style: TextStyle(fontSize:16,color: Colors.black,fontWeight: FontWeight.bold)),
+                      ),
+                    ),
+                  ),
+
                 ],
               )
           ),
