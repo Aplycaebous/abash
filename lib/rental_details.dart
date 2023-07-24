@@ -89,7 +89,9 @@ class _MyHomePageState extends State<MyHomePage> {
         Padding(
           padding: const EdgeInsets.only(left: 16.0, right: 16.0), // Add a left margin of 16 pixels
 
-          child: Column(
+          child: ListView(
+            scrollDirection: Axis.vertical,
+            addAutomaticKeepAlives: false,
             children: [
               PropertyImageBox(imageUrl: "assets/images/image 7.png"),
               PropertySliderImageBox(imageUrl: "assets/images/image 7.png"),
