@@ -21,14 +21,14 @@ class FooterCustomer extends StatelessWidget{
         ),
         child: Center(
           child: Padding(
-              padding:const EdgeInsets.only(left: 20,top:20,right: 20,bottom: 20),
+              padding:const EdgeInsets.only(left: 12,top:12,right: 12,bottom: 12),
               child:Row(
                 children: [
                   const Text(
                     '55,000 BDT / per month',
                     style: TextStyle(color:Colors.white,fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: 8),
                   OutlinedButton(
                     onPressed: null,
                     style: OutlinedButton.styleFrom(
