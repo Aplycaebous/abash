@@ -1,7 +1,8 @@
 import 'package:abash/description.dart';
 import 'package:abash/footer_customer.dart';
 import 'package:abash/footer_owner.dart';
-import 'package:abash/image_slider.dart';
+import 'package:abash/property_image_box.dart';
+import 'package:abash/property_image_slider.dart';
 import 'package:flutter/material.dart';
 
 
@@ -80,7 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
           child: Column(
             children: [
-              PropertyImageBox(),
+              PropertyImageBox(imageUrl: "assets/images/image 7.png"),
+              PropertySliderImageBox(imageUrl: "assets/images/image 7.png"),
               Description(),
             ],
           ),
