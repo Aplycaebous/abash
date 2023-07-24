@@ -77,7 +77,9 @@ class _MyHomePageState extends State<MyHomePage> {
         Padding(
           padding: const EdgeInsets.only(left: 8.0, right: 8.0),
 
-          child: Column(
+          child: ListView(
+            scrollDirection: Axis.vertical,
+            addAutomaticKeepAlives: false,
             children: [
               Description(),
             ],
