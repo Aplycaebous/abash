@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
         ),
-        const FooterOwner(),
+        const FooterCustomer(),
       ],)
     );
   }
