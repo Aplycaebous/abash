@@ -76,11 +76,11 @@ class _MyHomePageState extends State<MyHomePage> {
       body:Stack(children: [
 
         Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 10.0), // Add a left margin of 16 pixels
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0), // Add a left margin of 16 pixels
 
           child: Column(
             children: [
-              ImageSlider(),
+              PropertyImageBox(),
               Description(),
             ],
           ),
