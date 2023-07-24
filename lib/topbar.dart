@@ -1,4 +1,8 @@
+import 'package:abash/description.dart';
+import 'package:abash/footer_customer.dart';
+import 'package:abash/footer_owner.dart';
 import 'package:flutter/material.dart';
+
 
 class RentalDetails extends StatelessWidget {
   const RentalDetails({super.key});
@@ -27,18 +31,28 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool isIconColored = false;
 
+  void editButtonClick(){
+    setState(() {
+      isIconColored = !isIconColored;
+    });
+  }
+
+
+
   void toggleIconColor() {
     setState(() {
       isIconColored = !isIconColored;
     });
   }
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white60,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context); // Navigates back to the previous screen
           },
@@ -58,7 +72,13 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
       ),
-      body:const Text("Jahangir Villa")
+      body:Stack(children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 16.0), // Add a left margin of 16 pixels
+          child: Description(),
+        ),
+        const FooterCustomer(),
+      ],)
     );
   }
 }
