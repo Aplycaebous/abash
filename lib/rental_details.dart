@@ -1,7 +1,6 @@
 import 'package:abash/description.dart';
 import 'package:abash/footer_customer.dart';
 import 'package:abash/footer_owner.dart';
-import 'package:abash/image_slider.dart';
 import 'package:flutter/material.dart';
 
 
@@ -80,13 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
           child: Column(
             children: [
-              ImageSlider(),
               Description(),
             ],
           ),
 
         ),
-        const FooterCustomer(),
+        const FooterOwner(),
       ],)
     );
   }
