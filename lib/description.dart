@@ -50,7 +50,9 @@ class Description extends StatelessWidget{
                     style: TextStyle(fontSize: 12, color:Colors.grey)),
               ],
             )),
+            SizedBox(height: 15),
             Text("Description",style: TextStyle(color: Colors.black,fontSize: 14.0,fontWeight: FontWeight.bold)),
+            SizedBox(height: 15),
             Text("This modern and spacious apartment features two bedrooms and two bathrooms. The open plan living area boasts high ceilings and hardwood floors, while the fully-equipped kitchen includes stainless steel appliances and granite countertops. Enjoy fresh air and city views from the balcony. Other amenities include a fitness center and swimming pool. Conveniently located near downtown, this apartment offers easy access to restaurants, shops, and public transportation.",style: TextStyle(color: Colors.black,fontSize: 14.0)),
           ]);
   }
