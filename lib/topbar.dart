@@ -2,7 +2,7 @@ import 'package:abash/description.dart';
 import 'package:abash/footer_customer.dart';
 import 'package:abash/footer_owner.dart';
 import 'package:abash/property_image_box.dart';
-import 'package:abash/property_image_slider.dart';
+import 'package:abash/property_mini_slider_image.dart';
 import 'package:flutter/material.dart';
 
 

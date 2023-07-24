@@ -18,5 +18,4 @@ class PropertyImageBox extends StatelessWidget {
       ),
     );
   }
-
 }
