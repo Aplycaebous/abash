@@ -23,7 +23,7 @@ class OwnerInfo extends StatelessWidget {
         children: [
           Row(
             children: [
-              CircleAvatar(
+              const CircleAvatar(
                 radius: 24,
                 backgroundImage: NetworkImage("assets/images/image 8.png"),
               ),

@@ -9,16 +9,7 @@ class FooterOwner extends StatelessWidget {
       right: 0,
       bottom: 0,
       child: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFF5FB4E5), // Use the actual color values here
-              Color(0xFF0A8ED9),
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
+        color: const Color(0xFF22252A),
         child: Center(
           child: Padding(
               padding: const EdgeInsets.symmetric(
@@ -34,7 +25,7 @@ class FooterOwner extends StatelessWidget {
                       textBaseline: TextBaseline.alphabetic,
                       children: [
                         Text(
-                          '55,000 BDT',
+                          '45,000 BDT',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 22,

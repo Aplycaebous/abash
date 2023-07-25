@@ -1,4 +1,4 @@
-import 'package:abash/rental_details.dart';
+import 'package:abash/rental_details_customer.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 
