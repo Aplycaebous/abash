@@ -4,6 +4,7 @@ import 'package:abash/footer_owner.dart';
 import 'package:abash/property_image_box.dart';
 import 'package:abash/property_image_slider.dart';
 import 'package:abash/property_mini_slider_image.dart';
+import 'package:abash/owner_info.dart';
 import 'package:flutter/material.dart';
 
 
@@ -97,6 +98,9 @@ class _MyHomePageState extends State<MyHomePage> {
               PropertySliderImageBox(imageUrl: "assets/images/image 7.png"),
               // PropertyImageSlider(imageUrls: imageUrls),
               Description(),
+              OwnerInfo(userName: "User Name", isOwner: false, onCallPressed: () {
+                Navigator.pop(context);
+              },),
               const SizedBox(height:60)
             ],
           ),
