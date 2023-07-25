@@ -43,10 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   List<String> imageUrls = [
+    'assets/images/image 10.png',
     'assets/images/image 2.png',
     'assets/images/image 7.png',
-    'assets/images/image 10.png',
     'assets/images/image 9.png',
+    'assets/images/image 10.png',
   ];
 
 
@@ -95,9 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
             scrollDirection: Axis.vertical,
             addAutomaticKeepAlives: false,
             children: [
-              PropertyImageBox(imageUrl: "assets/images/image 7.png"),
-              PropertySliderImageBox(imageUrl: "assets/images/image 7.png"),
-              // PropertyImageSlider(imageUrls: imageUrls),
+              PropertyImageSlider(imageUrls: imageUrls),
               Description(),
               OwnerInfo(userName: "User Name", isOwner: false, onCallPressed: () {
                 Navigator.pop(context);

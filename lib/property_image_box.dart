@@ -10,7 +10,7 @@ class PropertyImageBox extends StatelessWidget {
     return SizedBox(
       height: (MediaQuery.of(context).size.height * 0.3),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(16.0),
+        borderRadius: BorderRadius.circular(22.0),
         child: Image.network(
           imageUrl,
           fit: BoxFit.cover,
