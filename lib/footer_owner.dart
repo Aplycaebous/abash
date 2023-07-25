@@ -1,26 +1,51 @@
 import 'package:flutter/material.dart';
 
-class FooterOwner extends StatelessWidget{
+class FooterOwner extends StatelessWidget {
   const FooterOwner({super.key});
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Positioned(
       left: 0,
       right: 0,
       bottom: 0,
       child: Container(
-        color: const Color(0xFF22252A),
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF5FB4E5), // Use the actual color values here
+              Color(0xFF0A8ED9),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
         child: Center(
           child: Padding(
-              padding:const EdgeInsets.only(left: 12,top:12,right: 12,bottom: 12),
-              child:Row(
+              padding: const EdgeInsets.symmetric(
+                  vertical: 16, horizontal: 20),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Align(
                     alignment: Alignment.centerLeft,
-                    child:Text(
-                      '55,000 BDT / per month',
-                      style: TextStyle(color:Colors.white,fontSize: 22, fontWeight: FontWeight.bold),
+                    child: Row(
+                      // Use a Row to place both texts on the same line
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Text(
+                          '55,000 BDT',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(width: 4), // Add a small gap between the texts
+                        Text(
+                          '/ per month',
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                      ],
                     ),
                   ),
                   Align(
@@ -31,19 +56,22 @@ class FooterOwner extends StatelessWidget{
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
-                            side: const BorderSide(color: Colors.black, width: 2), // Add a border here
-                          )
-                      ),
+                            side: const BorderSide(
+                                color: Colors.black,
+                                width: 2), // Add a border here
+                          )),
                       child: const Padding(
-                        padding: EdgeInsets.only(left:5,right:5),
-                        child: Text('Edit',style: TextStyle(fontSize:16,color: Colors.black,fontWeight: FontWeight.bold)),
+                        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        child: Text('Edit',
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold)),
                       ),
                     ),
                   ),
-
                 ],
-              )
-          ),
+              )),
         ),
       ),
     );

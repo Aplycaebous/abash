@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
               OwnerInfo(userName: "User Name", isOwner: false, onCallPressed: () {
                 Navigator.pop(context);
               },),
-              const SizedBox(height:60)
+              const SizedBox(height:80)
             ],
           ),
 
