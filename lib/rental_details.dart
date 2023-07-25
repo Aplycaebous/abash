@@ -1,6 +1,7 @@
 import 'package:abash/description.dart';
 import 'package:abash/footer_customer.dart';
 import 'package:abash/footer_owner.dart';
+import 'package:abash/google_map_view.dart';
 import 'package:abash/property_image_box.dart';
 import 'package:abash/property_image_slider.dart';
 import 'package:abash/property_mini_slider_image.dart';
@@ -101,6 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
               OwnerInfo(userName: "User Name", isOwner: false, onCallPressed: () {
                 Navigator.pop(context);
               },),
+              GoogleMapView(),
               const SizedBox(height:80)
             ],
           ),
