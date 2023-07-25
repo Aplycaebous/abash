@@ -63,11 +63,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white60,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context); // Navigates back to the previous screen
-            },
+          leading: const IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: null,
           ),
           title: const Center(
               child:Text("Details",style:TextStyle(
@@ -98,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 OwnerInfo(userName: "Rafiqul Islam", isOwner: true, onCallPressed: () {
                   Navigator.pop(context);
                 },),
-                GoogleMapView(),
+                const GoogleMapView(),
                 const SizedBox(height:80)
               ],
             ),

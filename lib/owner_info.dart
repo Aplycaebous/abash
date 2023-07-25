@@ -65,9 +65,9 @@ class OwnerInfo extends StatelessWidget {
                   ),
                 ],
               ),
-              child: IconButton(
-                icon: const Icon(Icons.call_outlined),
-                onPressed: onCallPressed,
+              child: const IconButton(
+                icon: Icon(Icons.call_outlined),
+                onPressed: null,
                 color: Colors.white,
               ),
             ),
