@@ -19,20 +19,20 @@ class Description extends StatelessWidget{
             SizedBox(width: 4),
             Text(
               '4 bedrooms',
-              style: TextStyle(fontSize: 12, color:Colors.grey),
+              style: TextStyle(fontSize: 14, color:Colors.grey),
             ),
             SizedBox(width: 8),
             Icon(Icons.bathtub_outlined, color: Colors.grey),
             SizedBox(width: 4),
             Text(
                 '4 bathrooms',
-                style: TextStyle(fontSize: 12, color:Colors.grey)),
+                style: TextStyle(fontSize: 14, color:Colors.grey)),
             SizedBox(width: 8),
             Icon(Icons.stairs_outlined, color: Colors.grey),
             SizedBox(width: 4),
             Text(
                 '4th floor',
-                style: TextStyle(fontSize: 12, color:Colors.grey)),
+                style: TextStyle(fontSize: 14, color:Colors.grey)),
           ],
         )),
             Padding(padding: EdgeInsets.only(left:0,right:0,top:4,bottom: 4),child:Row(
@@ -42,14 +42,14 @@ class Description extends StatelessWidget{
                 SizedBox(width: 4),
                 Text(
                   'Elevator available',
-                  style: TextStyle(fontSize: 12, color:Colors.grey),
+                  style: TextStyle(fontSize: 14, color:Colors.grey),
                 ),
                 SizedBox(width: 8),
                 Icon(Icons.local_parking_rounded, color: Colors.grey),
                 SizedBox(width: 4),
                 Text(
                     'Parking available',
-                    style: TextStyle(fontSize: 12, color:Colors.grey)),
+                    style: TextStyle(fontSize: 14, color:Colors.grey)),
               ],
             )),
             SizedBox(height: 15),

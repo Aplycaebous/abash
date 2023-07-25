@@ -15,9 +15,9 @@ class OwnerInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-          vertical: 10), // Add padding for the entire widget
-      color: Colors.white, // Set white background color
+      padding: const EdgeInsets.only(
+          top: 30, bottom:6),
+      color: Colors.white60, // Set white background color
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
