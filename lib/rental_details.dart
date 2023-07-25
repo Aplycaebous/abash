@@ -97,6 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
               PropertySliderImageBox(imageUrl: "assets/images/image 7.png"),
               // PropertyImageSlider(imageUrls: imageUrls),
               Description(),
+              const SizedBox(height:30)
             ],
           ),
 
