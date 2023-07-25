@@ -12,12 +12,11 @@ class PropertySliderImageBox extends StatelessWidget {
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 15),
           SizedBox(
-            height: (MediaQuery.of(context).size.height * 0.11),
-            width: (MediaQuery.of(context).size.height * 0.11),
+            height: (MediaQuery.of(context).size.width*0.2125),
+            width: (MediaQuery.of(context).size.width*0.2125),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(16.0),
+              borderRadius: BorderRadius.circular(20.0),
               child: Image.network(
                 imageUrl,
                 fit: BoxFit.cover,
