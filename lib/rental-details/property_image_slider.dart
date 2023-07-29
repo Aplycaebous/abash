@@ -1,5 +1,5 @@
-import 'package:abash/property_image_box.dart';
-import 'package:abash/property_mini_slider_image.dart';
+import 'package:abash/rental-details/property_image_box.dart';
+import 'package:abash/rental-details/property_mini_slider_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 

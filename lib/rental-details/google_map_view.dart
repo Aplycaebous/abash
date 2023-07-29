@@ -1,4 +1,4 @@
-import 'package:abash/property_image_box.dart';
+import 'package:abash/rental-details/property_image_box.dart';
 import 'package:flutter/material.dart';
 
 class GoogleMapView extends StatelessWidget {

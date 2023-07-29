@@ -1,36 +1,23 @@
-import 'package:abash/description.dart';
-import 'package:abash/footer_owner.dart';
-import 'package:abash/google_map_view.dart';
-import 'package:abash/property_image_slider.dart';
-import 'package:abash/owner_info.dart';
+import 'package:abash/rental-details/description.dart';
+import 'package:abash/rental-details/footer_customer.dart';
+import 'package:abash/rental-details/footer_owner.dart';
+import 'package:abash/rental-details/google_map_view.dart';
+import 'package:abash/rental-details/property_image_box.dart';
+import 'package:abash/rental-details/property_image_slider.dart';
+import 'package:abash/rental-details/property_mini_slider_image.dart';
+import 'package:abash/rental-details/owner_info.dart';
 import 'package:flutter/material.dart';
 
 
-class RentalDetails extends StatelessWidget {
-  const RentalDetails({super.key});
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Details Page',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Details'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class RentailDetailsPage extends StatefulWidget {
+  const RentailDetailsPage({super.key, required this.title});
   final String title;
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<RentailDetailsPage> createState() => _RentailDetailsPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _RentailDetailsPageState extends State<RentailDetailsPage> {
   bool isIconColored = false;
 
   void editButtonClick(){
@@ -93,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 PropertyImageSlider(imageUrls: imageUrls),
                 Description(),
-                OwnerInfo(userName: "Rafiqul Islam", isOwner: true, onCallPressed: () {
+                OwnerInfo(userName: "Khalid Hasan", isOwner: false, onCallPressed: () {
                   Navigator.pop(context);
                 },),
                 const GoogleMapView(),
@@ -102,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
 
           ),
-          const FooterOwner(),
+          const FooterCustomer(),
         ],)
     );
   }
