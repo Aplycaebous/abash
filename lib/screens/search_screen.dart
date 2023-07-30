@@ -47,59 +47,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100),
-      child: AppBar(
-        elevation: 0,
-        toolbarHeight: 100,
-        backgroundColor: kPrimaryColor,
-        leading: null,
-        foregroundColor: Colors.black,
-        actions: <Widget>[
-          IconButton(
-            padding: EdgeInsets.symmetric(horizontal: 10,vertical: 30),
-              icon: Icon(Icons.arrow_back),
-              color: Colors.white,
-              onPressed: () {
-                setState(() async {
-                  Navigator.pop(context);
-                });
-              }),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.only(left: 10,right: 10),
-              child: Container(
-                margin: EdgeInsets.only(top: 20,bottom: 20),
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(16)),
-                  color: Colors.white,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(Icons.search,color: Colors.grey,),
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          filled: true,
-                            fillColor: Colors.white,
-                            hintText: 'Search house',
-                            hintStyle: TextStyle(color: Colors.grey)),
-                        onChanged: (value)=> showSearchResults(value),
-                      ),
-                    ),
-                    Icon(Icons.sync_alt)
-                  ],
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
-    ),
+      appBar: buildSearchBar(context),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -126,5 +74,64 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
       ),
     );
+  }
+
+
+  
+  PreferredSize buildSearchBar(BuildContext context) {
+
+    return PreferredSize(
+      preferredSize: Size.fromHeight(100),
+    child: AppBar(
+      elevation: 0,
+      toolbarHeight: 100,
+      backgroundColor: kPrimaryColor,
+      leading: null,
+      foregroundColor: Colors.black,
+      actions: <Widget>[
+        IconButton(
+          padding: EdgeInsets.symmetric(horizontal: 10,vertical: 30),
+            icon: Icon(Icons.arrow_back),
+            color: Colors.white,
+            onPressed: () {
+              setState(() async {
+                Navigator.pop(context);
+              });
+            }),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.only(left: 10,right: 10),
+            child: Container(
+              margin: EdgeInsets.only(top: 20,bottom: 20),
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(16)),
+                color: Colors.white,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(Icons.search,color: Colors.grey,),
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        filled: true,
+                          fillColor: Colors.white,
+                          hintText: 'Search house',
+                          hintStyle: TextStyle(color: Colors.grey)),
+                      onChanged: (value)=> showSearchResults(value),
+                    ),
+                  ),
+                  Icon(Icons.sync_alt)
+                ],
+              ),
+            ),
+          ),
+        )
+      ],
+    ),
+  );
   }
 }

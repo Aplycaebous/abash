@@ -1,3 +1,4 @@
+import 'package:abash/screens/search_result_screen.dart';
 import 'package:abash/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class SearchPage extends StatelessWidget {
       theme: ThemeData(
         primaryColor: kPrimaryColor,
       ),
-      home: SearchScreen(),
+      home: SearchResultScreen(),
     );
   }
 }
