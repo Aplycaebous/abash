@@ -40,25 +40,38 @@ class _EditDeleteOptionsState extends State<EditDeleteOptions> {
                 right: 20.0,
                 left: 20.0,
                 top: 10.0), // Add the desired padding here
-            child: buildOption('Edit', Icons.edit_note_outlined,
-                _isHoveringEdit, optionWidth, optionHeight, null),
+            child: buildOption(
+                'Edit',
+                Icons.edit_note_outlined,
+                _isHoveringEdit,
+                "edit_square",
+                optionWidth,
+                optionHeight,
+                null),
           ),
           Padding(
             padding: const EdgeInsets.only(
                 right: 20.0,
                 left: 20.0,
                 bottom: 10.0), // Add the desired padding here
-            child: buildOption('Remove', Icons.delete_forever_outlined,
-                _isHoveringDelete, optionWidth, optionHeight, _showDeleteModal),
+            child: buildOption(
+                'Remove',
+                Icons.delete_forever_outlined,
+                _isHoveringDelete,
+                "delete_forever",
+                optionWidth,
+                optionHeight,
+                _showDeleteModal),
           ),
         ],
       ),
     );
   }
 
-  Widget buildOption(String label, IconData icon, bool isHovering, double width,
-      double height, Function()? onTap) {
-    final color = isHovering ? const Color(0xFF0A8ED9) : const Color(0xFF22252A);
+  Widget buildOption(String label, IconData icon, bool isHovering, String path,
+      double width, double height, Function()? onTap) {
+    final color =
+        isHovering ? const Color(0xFF0A8ED9) : const Color(0xFF22252A);
 
     return SizedBox(
       width: width,
@@ -85,8 +98,13 @@ class _EditDeleteOptionsState extends State<EditDeleteOptions> {
           onTap: onTap,
           child: Row(
             children: [
-              Icon(icon, color: color),
-              const SizedBox(width: 4),
+              ImageIcon(
+                AssetImage(
+                    'icons/$path.png'), // Replace with your image path pattern
+                color: color,
+                size:20,
+              ),
+              const SizedBox(width: 6),
               Text(label, style: TextStyle(color: color, fontSize: 14)),
             ],
           ),

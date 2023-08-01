@@ -15,7 +15,12 @@ class CardContainer extends StatelessWidget {
         itemCount: propertyData.length,
         itemBuilder: (context, index) {
           final property = propertyData[index];
-          return addedProperty? AddedPropertyCard(propertyData: property): RentedPropertyCard(propertyData: property);
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4.0), // Add desired vertical padding here
+            child: addedProperty
+                ? AddedPropertyCard(propertyData: property)
+                : RentedPropertyCard(propertyData: property),
+          );
         },
       ),
     );

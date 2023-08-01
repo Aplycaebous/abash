@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 class RentedPropertyCard extends StatefulWidget {
   final Map<String, dynamic> propertyData;
-  const RentedPropertyCard({Key? key, required this.propertyData}) : super(key: key);
+  const RentedPropertyCard({Key? key, required this.propertyData})
+      : super(key: key);
 
   @override
   _RentedPropertyCardState createState() => _RentedPropertyCardState();
 }
 
 class _RentedPropertyCardState extends State<RentedPropertyCard> {
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -29,7 +29,7 @@ class _RentedPropertyCardState extends State<RentedPropertyCard> {
                   borderRadius: BorderRadius.circular(15.0),
                   child: Image.network(
                     widget.propertyData['imageUrl'],
-                    width: 125,
+                    width: 110,
                     height: 140,
                     fit: BoxFit.cover,
                   ),
@@ -68,38 +68,38 @@ class _RentedPropertyCardState extends State<RentedPropertyCard> {
                         ),
                       ),
                       const SizedBox(height: 2),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Icon(Icons.bed_outlined),
-                          SizedBox(width: 4),
+                          const Icon(Icons.bed_outlined),
+                          const SizedBox(width: 4),
                           Text(
-                            '4 bedrooms',
-                            style: TextStyle(
+                            '${widget.propertyData['bedrooms']} bedrooms',
+                            style: const TextStyle(
                               fontSize: 12,
                               color: Color(0xFF22252A),
                             ),
                           ),
-                          SizedBox(width: 8),
-                          Icon(Icons.bathtub_outlined),
-                          SizedBox(width: 4),
+                          const SizedBox(width: 8),
+                          const Icon(Icons.bathtub_outlined),
+                          const SizedBox(width: 4),
                           Text(
-                            '4 bathrooms',
-                            style: TextStyle(
+                            '${widget.propertyData['bathrooms']} bathrooms',
+                            style: const TextStyle(
                               fontSize: 12,
                               color: Color(0xFF22252A),
                             ),
                           ),
                         ],
                       ),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Icon(Icons.stairs_outlined),
-                          SizedBox(width: 4),
+                          const Icon(Icons.stairs_outlined),
+                          const SizedBox(width: 4),
                           Text(
-                            '4th floor',
-                            style: TextStyle(
+                            '${widget.propertyData['floor']}',
+                            style: const TextStyle(
                               fontSize: 12,
                               color: Color(0xFF22252A),
                             ),
@@ -107,11 +107,11 @@ class _RentedPropertyCardState extends State<RentedPropertyCard> {
                         ],
                       ),
                       const SizedBox(height: 8),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text('32000 BDT / per month',
-                              style: TextStyle(
+                          Text('${widget.propertyData['rent']} BDT / per month',
+                              style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                   color: Colors.blueAccent)),

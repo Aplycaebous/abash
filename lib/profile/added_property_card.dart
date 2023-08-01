@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class AddedPropertyCard extends StatefulWidget {
   final Map<String, dynamic> propertyData;
-  const AddedPropertyCard({Key? key, required this.propertyData}) : super(key: key);
+  const AddedPropertyCard({Key? key, required this.propertyData})
+      : super(key: key);
 
   @override
   _AddedPropertyCardState createState() => _AddedPropertyCardState();
@@ -36,7 +37,7 @@ class _AddedPropertyCardState extends State<AddedPropertyCard> {
                   borderRadius: BorderRadius.circular(15.0),
                   child: Image.network(
                     widget.propertyData['imageUrl'],
-                    width: 125,
+                    width: 110,
                     height: 140,
                     fit: BoxFit.cover,
                   ),
@@ -80,53 +81,66 @@ class _AddedPropertyCardState extends State<AddedPropertyCard> {
                         ),
                       ),
                       const SizedBox(height: 2),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Icon(Icons.bed_outlined),
-                          SizedBox(width: 4),
-                          Text(
-                            '4 bedrooms',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Color(0xFF22252A),
+                          const Icon(Icons.bed_outlined),
+                          const SizedBox(width: 4),
+                          Expanded(
+                            child: Text(
+                              '${widget.propertyData['bedrooms']} bedrooms',
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: Color(0xFF22252A),
+                              ),
+                              overflow: TextOverflow
+                                  .ellipsis, // Add this line to truncate the text if it overflows
                             ),
                           ),
-                          SizedBox(width: 8),
-                          Icon(Icons.bathtub_outlined),
-                          SizedBox(width: 4),
-                          Text(
-                            '4 bathrooms',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Color(0xFF22252A),
+                          const SizedBox(width: 8),
+                          const Icon(Icons.bathtub_outlined),
+                          const SizedBox(width: 4),
+                          Expanded(
+                            child: Text(
+                              '${widget.propertyData['bathrooms']} bathrooms',
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: Color(0xFF22252A),
+                              ),
+                              overflow: TextOverflow
+                                  .ellipsis, // Add this line to truncate the text if it overflows
                             ),
                           ),
                         ],
                       ),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Icon(Icons.stairs_outlined),
-                          SizedBox(width: 4),
-                          Text(
-                            '4th floor',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Color(0xFF22252A),
+                          const Icon(Icons.stairs_outlined),
+                          const SizedBox(width: 4),
+                          Expanded(
+                            child: Text(
+                              '${widget.propertyData['floor']}',
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: Color(0xFF22252A),
+                              ),
                             ),
                           ),
                         ],
                       ),
                       const SizedBox(height: 8),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text('32000 BDT / per month',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                  color: Colors.blueAccent)),
+                          Expanded(
+                            child: Text(
+                                '${widget.propertyData['rent']} BDT / per month',
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    color: Colors.blueAccent)),
+                          ),
                         ],
                       ),
                     ],
