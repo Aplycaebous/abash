@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+
+
 class FooterCustomer extends StatelessWidget {
   const FooterCustomer({super.key});
   @override
@@ -9,7 +11,16 @@ class FooterCustomer extends StatelessWidget {
       right: 0,
       bottom: 0,
       child: Container(
-        color: const Color(0xFF22252A),
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF5FB4E5), // Use the actual color values here
+              Color(0xFF0A8ED9),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
         child: Center(
           child: Padding(
               padding: const EdgeInsets.symmetric(
@@ -25,13 +36,13 @@ class FooterCustomer extends StatelessWidget {
                       textBaseline: TextBaseline.alphabetic,
                       children: [
                         Text(
-                          '45,000 BDT',
+                          '55,000 BDT',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 22,
                               fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(width: 4), // Add a small gap between the texts
+                        SizedBox(width: 2), // Add a small gap between the texts
                         Text(
                           '/ per month',
                           style: TextStyle(color: Colors.white, fontSize: 16),
@@ -51,14 +62,11 @@ class FooterCustomer extends StatelessWidget {
                                 color: Colors.black,
                                 width: 2), // Add a border here
                           )),
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                        child: Text('Edit',
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold)),
-                      ),
+                      child: const Text('Rent Now',
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold)),
                     ),
                   ),
                 ],
@@ -68,3 +76,5 @@ class FooterCustomer extends StatelessWidget {
     );
   }
 }
+
+
