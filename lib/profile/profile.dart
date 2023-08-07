@@ -2,6 +2,8 @@ import 'package:abash/partials/navbar.dart';
 import 'package:abash/profile/card_container.dart';
 import 'package:abash/profile/menu.dart';
 import 'package:abash/profile/nothings_here.dart';
+import 'package:abash/profile/user_info.dart';
+import 'package:abash/profile/user_profile_avatar.dart';
 import 'package:flutter/material.dart';
 
 import 'button_panel.dart';
@@ -97,7 +99,11 @@ class _ProfileState extends State<Profile> {
     }
   ];
 
-
+  final Map<String, dynamic> sampleUserInfo = {
+    'name': 'John Doe',
+    'verified': false,
+    'profilePicture': 'assets/images/rafsan_fahim.png',
+  };
   List<Map<String, dynamic>> rentedPropertyData = [];
 
   bool _showAddedProperties = true;
@@ -135,10 +141,8 @@ class _ProfileState extends State<Profile> {
         child: Column(
         children: [
           // Fixed height profile bar
-          Container(
-            height: 150,
-            // Add the profile component
-          ),
+          // UserProfileAvatar(imageUrl: sampleUserInfo['profilePicture']),
+          UserInfoCard(userInfo: sampleUserInfo),
           ButtonPanel(
             onToggle: () {
               setState(() {
