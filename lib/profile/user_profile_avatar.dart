@@ -9,7 +9,7 @@ class UserProfileAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final avatarSize = MediaQuery.of(context).size.height * (82.0 / 800.0);
-    final borderWidth = MediaQuery.of(context).size.height * (2.0 / 800.0);
+    final borderWidth = MediaQuery.of(context).size.height * (2.50 / 800.0);
 
     return Container(
       width: avatarSize,
@@ -17,9 +17,9 @@ class UserProfileAvatar extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.6),
-            spreadRadius: 2,
-            blurRadius: 5,
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 5,
+            blurRadius: 10,
             offset: Offset(0, 3),
           ),
         ],
