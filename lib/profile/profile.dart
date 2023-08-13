@@ -15,6 +15,7 @@ class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => _ProfileState();
 }
+
 class _ProfileState extends State<Profile> {
   List<Map<String, dynamic>> addedPropertyData = [
     {
@@ -136,10 +137,44 @@ class _ProfileState extends State<Profile> {
         ),
       ),
       endDrawer: const Menu(),
-      bottomNavigationBar: NavbarBottom(),
-      body: Padding (
+      bottomNavigationBar: const NavbarBottom(),
+      body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
+          children: [
+            // Fixed height profile bar
+            Container(
+              height: 20,
+              // Add the profile component
+            ),
+            // UserProfileAvatar(imageUrl: sampleUserInfo['profilePicture']),
+            UserInfoCard(userInfo: sampleUserInfo),
+            ButtonPanel(
+              onToggle: () {
+                setState(() {
+                  _showAddedProperties = !_showAddedProperties;
+                });
+              },
+              showAddedProperties: _showAddedProperties,
+            ),
+            // Vertically scrollable container
+            // Vertically scrollable container or "Nothing here" component
+            _showAddedProperties
+                ? (addedPropertyData.isNotEmpty
+                    ? CardContainer(
+                        propertyData: addedPropertyData,
+                        addedProperty: true,
+                      )
+                    : const NothingsHere())
+                : (rentedPropertyData.isNotEmpty
+                    ? CardContainer(
+                        propertyData: rentedPropertyData,
+                        addedProperty: false,
+                      )
+                    : const NothingsHere()),
+          ],
+        ),
+      ),
           children: [
 
             UserInfoCard(userInfo: sampleUserInfo),
