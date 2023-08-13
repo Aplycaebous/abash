@@ -5,22 +5,28 @@ import 'package:flutter/material.dart';
 class UserInfoCard extends StatelessWidget {
   final Map<String, dynamic> userInfo;
 
-  const UserInfoCard({Key? key, required this.userInfo}) : super(key: key);
+  UserInfoCard({Key? key, required this.userInfo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxHeight: 150), // Set maximum height
-      child: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
+      constraints: userInfo['verified']
+          ? BoxConstraints(maxHeight: 150)
+          : BoxConstraints(maxHeight: 160), // Set maximum height
+      child: Padding(
+        padding: EdgeInsets.all(
+            MediaQuery.of(context).size.width * (16.0 / 360.0)), // Add padding of 16
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             UserProfileAvatar(imageUrl: userInfo['profilePicture']),
-            SizedBox(width: 10), // Add spacing between avatar and text
+            SizedBox(width: 15), // Add spacing between avatar and text
             Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                if(!userInfo['verified'])...[
+                SizedBox(height: 20)],
                 Text(
                   userInfo['name'], // Replace with actual user's name
                   style: TextStyle(
@@ -28,15 +34,41 @@ class UserInfoCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 3),
+                SizedBox(height: 10),
                 VerificationBadge(verified: userInfo['verified']),
-                // Text(
-                //   (userInfo['verified']==false?"Without verification you cannot rent or add properties. Verify now": ""),
-                //   style: TextStyle(
-                //     fontSize: 10,
-                //   ),
-                // ),
-                // Add more text widgets as needed (e.g., user bio)
+                if (!userInfo['verified']) ...[
+                  SizedBox(height: 8),
+                  Container(
+                    constraints: BoxConstraints(maxWidth: 200),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text:
+                                "Without verification you cannot rent or add properties. ",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.black, // Keep the text color black
+                                ),
+                              ),
+                              TextSpan(
+                                text: "Verify now",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF0A8ED9), // Make the text blue
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ], // <- Missing opening brace {
               ],
             ),
           ],
