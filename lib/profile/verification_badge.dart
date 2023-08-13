@@ -22,7 +22,7 @@ class VerificationBadge extends StatelessWidget {
             Icon(
               verified ? Icons.check : Icons.close,
               color: Colors.white,
-              size: 10,
+              size: 12,
             ),
             SizedBox(width: 4),
             Text(
