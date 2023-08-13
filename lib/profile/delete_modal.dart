@@ -7,7 +7,9 @@ class DeleteModal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text("Remove Property?"),
+      title: const Center(
+          child: Text("Remove Property?",style: TextStyle(color: Colors.black, fontSize: 18))
+      ),
       actions: [
         TextButton(
           onPressed: () {
