@@ -23,7 +23,7 @@ class DeleteModal extends StatelessWidget {
           },
           child: const Text("No"),
         )
-      ],
+      ]
     );
   }
 }
