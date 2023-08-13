@@ -5,6 +5,7 @@ import 'package:abash/profile/nothings_here.dart';
 import 'package:abash/profile/user_info.dart';
 import 'package:abash/profile/user_profile_avatar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'button_panel.dart';
 
@@ -14,7 +15,6 @@ class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => _ProfileState();
 }
-
 class _ProfileState extends State<Profile> {
   List<Map<String, dynamic>> addedPropertyData = [
     {
@@ -123,13 +123,14 @@ class _ProfileState extends State<Profile> {
           icon: Icon(Icons.arrow_back),
           onPressed: null,
         ),
-        title: const Center(
+        title: Center(
           child: Text(
             "Profile",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontFamily: "DM Sans",
-              fontSize: 18.0,
+            style: GoogleFonts.dmSans(
+              textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+              ),
             ),
           ),
         ),
@@ -139,35 +140,33 @@ class _ProfileState extends State<Profile> {
       body: Padding (
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
-        children: [
-          // Fixed height profile bar
-          // UserProfileAvatar(imageUrl: sampleUserInfo['profilePicture']),
-          UserInfoCard(userInfo: sampleUserInfo),
-          ButtonPanel(
-            onToggle: () {
-              setState(() {
-                _showAddedProperties = !_showAddedProperties;
-              });
-            },
-            showAddedProperties: _showAddedProperties,
-          ),
-          // Vertically scrollable container
-          // Vertically scrollable container or "Nothing here" component
-          _showAddedProperties
-              ? (addedPropertyData.isNotEmpty
-                  ? CardContainer(
-                      propertyData: addedPropertyData,
-                      addedProperty: true,
-                    )
-                  : const NothingsHere())
-              : (rentedPropertyData.isNotEmpty
-                  ? CardContainer(
-                      propertyData: rentedPropertyData,
-                      addedProperty: false,
-                    )
-                  : const NothingsHere()),
-        ],
-      ), ),
+          children: [
+
+            UserInfoCard(userInfo: sampleUserInfo),
+            ButtonPanel(
+              onToggle: () {
+                setState(() {
+                  _showAddedProperties = !_showAddedProperties;
+                });
+              },
+              showAddedProperties: _showAddedProperties,
+            ),
+            _showAddedProperties
+                ? (addedPropertyData.isNotEmpty
+                ? CardContainer(
+              propertyData: addedPropertyData,
+              addedProperty: true,
+            )
+                : const NothingsHere())
+                : (rentedPropertyData.isNotEmpty
+                ? CardContainer(
+              propertyData: rentedPropertyData,
+              addedProperty: false,
+            )
+                : const NothingsHere()),
+          ],
+        ),
+      ),
     );
   }
 }
