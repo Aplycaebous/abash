@@ -8,10 +8,11 @@ class VerificationBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * (21.0 / 800.0),
-      width: MediaQuery.of(context).size.width * (90.0 / 360.0),
+      height: MediaQuery.of(context).size.height * (22.0 / 800.0),
+      width: MediaQuery.of(context).size.width * (95.0 / 360.0),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        alignment: Alignment.center,
         decoration: BoxDecoration(
           color: verified ? Colors.green : Colors.grey,
           borderRadius: BorderRadius.circular(8),
@@ -29,7 +30,7 @@ class VerificationBadge extends StatelessWidget {
               verified ? 'Verified User' : 'Not Verified',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 10,
+                fontSize: 11,
               ),
             ),
           ],
