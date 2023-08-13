@@ -14,104 +14,97 @@ class ButtonPanel extends StatefulWidget {
 }
 
 class _ButtonPanelState extends State<ButtonPanel> {
+  bool isAddedPropertyActive = true;
+  bool isRentedPropertyActive = false;
+
   @override
   Widget build(BuildContext context) {
-    bool _isButton1Active = true;
-    bool _isButton2Active = false;
     return Container(
-      width: double.infinity, // Full screen width
+      width: double.infinity,
       padding: const EdgeInsets.all(8.0),
       color: const Color(0xFFF9F9F9),
       child: Row(
         children: [
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0xFFB2B2B2).withOpacity(0.33),
-                    offset: Offset(0, 10),
-                    blurRadius: 30,
-                    spreadRadius: 0,
-                  ),
-                ],
-                gradient: widget.showAddedProperties
-                    ? const LinearGradient(
-                        colors: [Color(0xFF5FB4E5), Color(0xFF0A8ED9)],
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                      )
-                    : null,
-                borderRadius: BorderRadius.circular(12.0),
-              ),
-              child: ElevatedButton(
-                onPressed: widget.showAddedProperties
-                    ? null
-                    : () {
-                        widget.onToggle();
-                        setState(() {
-                          _isButton1Active = true;
-                          _isButton2Active = false;
-                        });
-                      },
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 15.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
+            child: InkWell(
+              onTap: () {
+                setState(() {
+                  isAddedPropertyActive = true;
+                  isRentedPropertyActive = false;
+                });
+                widget.onToggle();
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: isAddedPropertyActive
+                      ? const LinearGradient(
+                    colors: [Color(0xFF5FB4E5), Color(0xFF0A8ED9)],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  )
+                      : null,
+                  color: isAddedPropertyActive ? null : Colors.white,
+                  borderRadius: BorderRadius.circular(12.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.3),
+                      spreadRadius: 1,
+                      blurRadius: 3,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+                ),
+                padding: const EdgeInsets.symmetric(vertical: 15.0),
+                alignment: Alignment.center,
+                child: Text(
+                  'Added Property',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: isAddedPropertyActive ? Colors.white : Colors.black,
                   ),
                 ),
-                child: Text('Added Property',
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: widget.showAddedProperties
-                            ? const Color(0xFFF9F9F9)
-                            : const Color(0xFF7F8793))),
               ),
             ),
           ),
           const SizedBox(width: 12),
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0xFFB2B2B2).withOpacity(0.33),
-                    offset: const Offset(0, 10),
-                    blurRadius: 30,
-                    spreadRadius: 0,
-                  ),
-                ],
-                gradient: widget.showAddedProperties
-                    ? null
-                    : const LinearGradient(
-                        colors: [Color(0xFF5FB4E5), Color(0xFF0A8ED9)],
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                      ),
-                borderRadius: BorderRadius.circular(12.0),
-              ),
-              child: ElevatedButton(
-                onPressed: widget.showAddedProperties
-                    ? () {
-                        widget.onToggle();
-                        setState(() {
-                          _isButton1Active = false;
-                          _isButton2Active = true;
-                        });
-                      }
-                    : null,
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 15.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
+            child: InkWell(
+              onTap: () {
+                setState(() {
+                  isAddedPropertyActive = false;
+                  isRentedPropertyActive = true;
+                });
+                widget.onToggle();
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: isRentedPropertyActive
+                      ? const LinearGradient(
+                    colors: [Color(0xFF5FB4E5), Color(0xFF0A8ED9)],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  )
+                      : null,
+                  color: isRentedPropertyActive ? null : Colors.white,
+                  borderRadius: BorderRadius.circular(12.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.3),
+                      spreadRadius: 1,
+                      blurRadius: 3,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+                ),
+                padding: const EdgeInsets.symmetric(vertical: 15.0),
+                alignment: Alignment.center,
+                child: Text(
+                  'Rented Property',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: isRentedPropertyActive ? Colors.white : Colors.black,
                   ),
                 ),
-                child: Text('Rented Property',
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: widget.showAddedProperties
-                            ? const Color(0xFF7F8793)
-                            : const Color(0xFFF9F9F9))),
               ),
             ),
           ),
