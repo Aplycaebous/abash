@@ -7,15 +7,20 @@ class DeleteModal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text("Delete Option"),
-      content: Text("This is the delete modal content."),
+      title: const Text("Remove Property?"),
       actions: [
         TextButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Text("Close"),
+          child: const Text("Yes"),
         ),
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text("No"),
+        )
       ],
     );
   }

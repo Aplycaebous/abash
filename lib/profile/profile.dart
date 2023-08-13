@@ -101,7 +101,7 @@ class _ProfileState extends State<Profile> {
 
   final Map<String, dynamic> sampleUserInfo = {
     'name': 'John Doe',
-    'verified': false,
+    'verified': true,
     'profilePicture': 'assets/images/rafsan_fahim.png',
   };
   List<Map<String, dynamic>> rentedPropertyData = [];
@@ -135,7 +135,7 @@ class _ProfileState extends State<Profile> {
         ),
       ),
       endDrawer: const Menu(),
-      bottomNavigationBar: NavbarBottom(),
+      bottomNavigationBar: const NavbarBottom(),
       body: Padding (
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(

@@ -10,25 +10,25 @@ class UserInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxHeight: 150), // Set maximum height
+      constraints: const BoxConstraints(maxHeight: 150), // Set maximum height
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             UserProfileAvatar(imageUrl: userInfo['profilePicture']),
-            SizedBox(width: 10), // Add spacing between avatar and text
+            const SizedBox(width: 10), // Add spacing between avatar and text
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   userInfo['name'], // Replace with actual user's name
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 3),
+                const SizedBox(height: 3),
                 VerificationBadge(verified: userInfo['verified']),
                 // Text(
                 //   (userInfo['verified']==false?"Without verification you cannot rent or add properties. Verify now": ""),
