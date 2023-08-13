@@ -21,13 +21,11 @@ void main() {
 class Root extends StatelessWidget {
   const Root({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Details Page',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         textTheme: GoogleFonts.dmSansTextTheme(), // Apply DM Sans to the text theme
         useMaterial3: true,
       ),
