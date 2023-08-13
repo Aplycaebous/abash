@@ -2,6 +2,8 @@ import 'package:abash/partials/navbar.dart';
 import 'package:abash/profile/card_container.dart';
 import 'package:abash/profile/menu.dart';
 import 'package:abash/profile/nothings_here.dart';
+import 'package:abash/profile/user_info.dart';
+import 'package:abash/profile/user_profile_avatar.dart';
 import 'package:flutter/material.dart';
 
 import 'button_panel.dart';
@@ -97,6 +99,11 @@ class _ProfileState extends State<Profile> {
     }
   ];
 
+  final Map<String, dynamic> sampleUserInfo = {
+    'name': 'John Doe',
+    'verified': true,
+    'profilePicture': 'assets/images/rafsan_fahim.png',
+  };
 
   List<Map<String, dynamic>> rentedPropertyData = [];
 
@@ -129,41 +136,44 @@ class _ProfileState extends State<Profile> {
         ),
       ),
       endDrawer: const Menu(),
-      bottomNavigationBar: NavbarBottom(),
-      body: Padding (
+      bottomNavigationBar: const NavbarBottom(),
+      body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
-        children: [
-          // Fixed height profile bar
-          Container(
-            height: 150,
-            // Add the profile component
-          ),
-          ButtonPanel(
-            onToggle: () {
-              setState(() {
-                _showAddedProperties = !_showAddedProperties;
-              });
-            },
-            showAddedProperties: _showAddedProperties,
-          ),
-          // Vertically scrollable container
-          // Vertically scrollable container or "Nothing here" component
-          _showAddedProperties
-              ? (addedPropertyData.isNotEmpty
-                  ? CardContainer(
-                      propertyData: addedPropertyData,
-                      addedProperty: true,
-                    )
-                  : const NothingsHere())
-              : (rentedPropertyData.isNotEmpty
-                  ? CardContainer(
-                      propertyData: rentedPropertyData,
-                      addedProperty: false,
-                    )
-                  : const NothingsHere()),
-        ],
-      ), ),
+          children: [
+            // Fixed height profile bar
+            Container(
+              height: 20,
+              // Add the profile component
+            ),
+            // UserProfileAvatar(imageUrl: sampleUserInfo['profilePicture']),
+            UserInfoCard(userInfo: sampleUserInfo),
+            ButtonPanel(
+              onToggle: () {
+                setState(() {
+                  _showAddedProperties = !_showAddedProperties;
+                });
+              },
+              showAddedProperties: _showAddedProperties,
+            ),
+            // Vertically scrollable container
+            // Vertically scrollable container or "Nothing here" component
+            _showAddedProperties
+                ? (addedPropertyData.isNotEmpty
+                    ? CardContainer(
+                        propertyData: addedPropertyData,
+                        addedProperty: true,
+                      )
+                    : const NothingsHere())
+                : (rentedPropertyData.isNotEmpty
+                    ? CardContainer(
+                        propertyData: rentedPropertyData,
+                        addedProperty: false,
+                      )
+                    : const NothingsHere()),
+          ],
+        ),
+      ),
     );
   }
 }
