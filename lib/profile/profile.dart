@@ -109,6 +109,7 @@ class _ProfileState extends State<Profile> {
 
   bool _showAddedProperties = true;
 
+
   void _toggleProperties() {
     setState(() {
       _showAddedProperties = !_showAddedProperties;
@@ -142,11 +143,6 @@ class _ProfileState extends State<Profile> {
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
           children: [
-            Container(
-              height: 20,
-              // Fixed height profile bar
-              // You can add components here if needed
-            ),
             UserInfoCard(userInfo: sampleUserInfo),
             ButtonPanel(
               onToggle: () {
@@ -156,22 +152,20 @@ class _ProfileState extends State<Profile> {
               },
               showAddedProperties: _showAddedProperties,
             ),
-            Expanded(
-              // Vertically scrollable container
-              child: _showAddedProperties
-                  ? (addedPropertyData.isNotEmpty
-                  ? CardContainer(
-                propertyData: addedPropertyData,
-                addedProperty: true,
-              )
-                  : const NothingsHere())
-                  : (rentedPropertyData.isNotEmpty
-                  ? CardContainer(
-                propertyData: rentedPropertyData,
-                addedProperty: false,
-              )
-                  : const NothingsHere()),
-            ),
+            // Vertically scrollable container
+            _showAddedProperties
+                ? (addedPropertyData.isNotEmpty
+                ? CardContainer(
+              propertyData: addedPropertyData,
+              addedProperty: true,
+            )
+                : const NothingsHere())
+                : (rentedPropertyData.isNotEmpty
+                ? CardContainer(
+              propertyData: rentedPropertyData,
+              addedProperty: false,
+            )
+                : const NothingsHere()),
           ],
         ),
       ),
