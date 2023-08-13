@@ -142,12 +142,11 @@ class _ProfileState extends State<Profile> {
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
           children: [
-            // Fixed height profile bar
             Container(
               height: 20,
-              // Add the profile component
+              // Fixed height profile bar
+              // You can add components here if needed
             ),
-            // UserProfileAvatar(imageUrl: sampleUserInfo['profilePicture']),
             UserInfoCard(userInfo: sampleUserInfo),
             ButtonPanel(
               onToggle: () {
@@ -157,48 +156,22 @@ class _ProfileState extends State<Profile> {
               },
               showAddedProperties: _showAddedProperties,
             ),
-            // Vertically scrollable container
-            // Vertically scrollable container or "Nothing here" component
-            _showAddedProperties
-                ? (addedPropertyData.isNotEmpty
-                    ? CardContainer(
-                        propertyData: addedPropertyData,
-                        addedProperty: true,
-                      )
-                    : const NothingsHere())
-                : (rentedPropertyData.isNotEmpty
-                    ? CardContainer(
-                        propertyData: rentedPropertyData,
-                        addedProperty: false,
-                      )
-                    : const NothingsHere()),
-          ],
-        ),
-      ),
-          children: [
-
-            UserInfoCard(userInfo: sampleUserInfo),
-            ButtonPanel(
-              onToggle: () {
-                setState(() {
-                  _showAddedProperties = !_showAddedProperties;
-                });
-              },
-              showAddedProperties: _showAddedProperties,
+            Expanded(
+              // Vertically scrollable container
+              child: _showAddedProperties
+                  ? (addedPropertyData.isNotEmpty
+                  ? CardContainer(
+                propertyData: addedPropertyData,
+                addedProperty: true,
+              )
+                  : const NothingsHere())
+                  : (rentedPropertyData.isNotEmpty
+                  ? CardContainer(
+                propertyData: rentedPropertyData,
+                addedProperty: false,
+              )
+                  : const NothingsHere()),
             ),
-            _showAddedProperties
-                ? (addedPropertyData.isNotEmpty
-                ? CardContainer(
-              propertyData: addedPropertyData,
-              addedProperty: true,
-            )
-                : const NothingsHere())
-                : (rentedPropertyData.isNotEmpty
-                ? CardContainer(
-              propertyData: rentedPropertyData,
-              addedProperty: false,
-            )
-                : const NothingsHere()),
           ],
         ),
       ),
