@@ -13,8 +13,8 @@ class UserInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints: userInfo['verified']
-          ? BoxConstraints(maxHeight: 150)
-          : BoxConstraints(maxHeight: 160), // Set maximum height
+          ? BoxConstraints(maxHeight: 120)
+          : BoxConstraints(maxHeight: 150), // Set maximum height
       child: Padding(
         padding: EdgeInsets.all(
             MediaQuery.of(context).size.width * (16.0 / 360.0)), // Add padding of 16
