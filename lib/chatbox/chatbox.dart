@@ -1,3 +1,4 @@
+import 'package:abash/chatbox/chatbox-top-bar.dart';
 import 'package:abash/chatbox/received-image.dart';
 import 'package:abash/chatbox/received-message.dart';
 import 'package:abash/chatbox/sent-image.dart';
@@ -11,9 +12,7 @@ class Chatbox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Chatbox'), // Replace with your title
-      ),
+      appBar: ChatBoxTopBar(),
       body: Column(
         children: <Widget>[
           // Scrollable space in the middle with background color
