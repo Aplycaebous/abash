@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ReceivedImage extends StatelessWidget {
+class SentImage extends StatelessWidget {
   final String imageUrl;
   final double maxWidthPercentage; // Define the maximum width as a percentage
   final double maxHeightPercentage;
 
-  const ReceivedImage({
+  const SentImage({
     Key? key,
     required this.imageUrl,
     this.maxWidthPercentage = 0.7,
@@ -19,42 +19,23 @@ class ReceivedImage extends StatelessWidget {
     final maxHeight = screenWidth * maxHeightPercentage;
 
     return Align(
-      alignment: Alignment.centerLeft,
+      alignment: Alignment.centerRight,
       child: Container(
-        margin: const EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 10.0),
+        margin: const EdgeInsets.fromLTRB(0.0, 10.0, 10.0, 10.0),
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10.0),
             topRight: Radius.circular(10.0),
-            bottomRight: Radius.circular(10.0),
             bottomLeft: Radius.circular(10.0),
           ),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Display the image with maximum width
-            Container(
-              constraints: BoxConstraints(
-                maxWidth: maxWidth, // Set the maximum width based on percentage
-                maxHeight: maxHeight,
-              ),
-              child: ClipRRect( // Clip the image to round the corners
-                borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(10.0),
-                  bottomRight: Radius.circular(10.0),
-                  bottomLeft: Radius.circular(10.0),
-                ),
-                child: Image.network(
-                  imageUrl,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-
             // Share button (vertically aligned)
             // Expanded(
             //   child: Align(
-            //     alignment: Alignment.centerLeft,
+            //     alignment: Alignment.centerRight,
             //     child: InkWell(
             //       onTap: () {
             //         // Handle the share action here
@@ -69,6 +50,30 @@ class ReceivedImage extends StatelessWidget {
             //     ),
             //   ),
             // ),
+
+            // Display the image with maximum width
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Container(
+                  constraints: BoxConstraints(
+                    maxWidth: maxWidth, // Set the maximum width based on percentage
+                    maxHeight: maxHeight,
+                  ),
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10.0),
+                      topRight: Radius.circular(10.0),
+                      bottomLeft: Radius.circular(10.0),
+                    ),
+                    child: Image.network(
+                      imageUrl,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
