@@ -7,13 +7,17 @@ class SentMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Define a maximum width for your sent message
+    final double maxMessageWidth = MediaQuery.of(context).size.width * 0.75;
+
     return Align(
       alignment: Alignment.centerRight,
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.75,
-        margin: const EdgeInsets.only(bottom: 5, right: 10, top: 5),
+        constraints: BoxConstraints(
+          maxWidth: maxMessageWidth, // Set the maximum width
+        ),
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          padding: const EdgeInsets.all(16.0), // Adjust the padding here
           decoration: const BoxDecoration(
             color: Color(0xFF0A8ED9), // Background color
             borderRadius: BorderRadius.only(
@@ -27,15 +31,16 @@ class SentMessage extends StatelessWidget {
             children: <Widget>[
               Text(
                 text,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.normal,
+                  height: 1.5, // Set the line-height
                   letterSpacing: 0,
                   fontFamily: 'DM Sans',
                 ),
+                textAlign: TextAlign.left,
               ),
-              SizedBox(height: 10),
               // Add any additional content or widgets here if needed
             ],
           ),
