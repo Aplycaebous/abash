@@ -11,8 +11,13 @@ class Chatbox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: ChatBoxTopBar(),
+    final appBarHeight = MediaQuery.sizeOf(context).width * 60 / 800;
+    return SafeArea(
+        child: Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(appBarHeight),
+        child: ChatBoxTopBar(),
+      ),
       body: Column(
         children: <Widget>[
           // Scrollable space in the middle with background color
@@ -21,14 +26,19 @@ class Chatbox extends StatelessWidget {
               color: const Color(0xFFF9F9F9), // Background color
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0), // Add horizontal padding
+                  padding:
+                      const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
+                  // Add horizontal padding
                   child: Column(
                     children: <Widget>[
                       Timestamp(dateTime: DateTime.now()),
-                      ReceivedMessage(text: "Hello, I'm Khalid. Here some pictures."),
-                      const ReceivedImage(imageUrl: "assets/images/chat image.png"),
+                      ReceivedMessage(
+                          text: "Hello, I'm Khalid. Here some pictures."),
+                      const ReceivedImage(
+                          imageUrl: "assets/images/chat image.png"),
                       SentMessage(text: "Show me other options"),
-                      const SentImage(imageUrl: "assets/images/chat image 2.png"),
+                      const SentImage(
+                          imageUrl: "assets/images/chat image 2.png"),
                       ReceivedMessage(text: "That's all I can show"),
                       // Add more messages here if needed
                     ],
@@ -39,14 +49,6 @@ class Chatbox extends StatelessWidget {
           ),
         ],
       ),
-      // Fixed bottom app bar
-      bottomNavigationBar: BottomAppBar(
-        // Your bottom app bar content here
-        child: Container(
-          height: 60.0, // Adjust the height as needed
-          color: Colors.blue, // Customize the color of your bottom app bar
-        ),
-      ),
-    );
+    ));
   }
 }
