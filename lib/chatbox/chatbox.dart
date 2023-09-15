@@ -11,7 +11,7 @@ class Chatbox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appBarHeight = MediaQuery.sizeOf(context).width * 60 / 800;
+    final appBarHeight = MediaQuery.sizeOf(context).height * 60 / 800;
     return SafeArea(
         child: Scaffold(
       appBar: PreferredSize(
@@ -48,6 +48,14 @@ class Chatbox extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      // Fixed bottom app bar
+      bottomNavigationBar: BottomAppBar(
+        // Your bottom app bar content here
+        child: Container(
+          height: 60.0, // Adjust the height as needed
+          color: Colors.blue, // Customize the color of your bottom app bar
+        ),
       ),
     ));
   }
