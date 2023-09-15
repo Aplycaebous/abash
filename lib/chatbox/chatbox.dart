@@ -1,6 +1,8 @@
 import 'package:abash/chatbox/received-image.dart';
 import 'package:abash/chatbox/received-message.dart';
+import 'package:abash/chatbox/sent-image.dart';
 import 'package:abash/chatbox/sent-messages.dart';
+import 'package:abash/chatbox/timestamp.dart';
 import 'package:flutter/material.dart';
 
 class Chatbox extends StatelessWidget {
@@ -14,24 +16,21 @@ class Chatbox extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          // Space at the top
-          SizedBox(height: 20.0),
-
           // Scrollable space in the middle with background color
           Expanded(
             child: Container(
-              color: Color(0xFFF9F9F9), // Background color
+              color: const Color(0xFFF9F9F9), // Background color
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0), // Add horizontal padding
+                  padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0), // Add horizontal padding
                   child: Column(
                     children: <Widget>[
-                      ReceivedMessage(text: "I am doing fineI am doing fineI am doing fineI am doing fineI am doing fineI am doing fineI am doing fineI am doing finey"),
-                      SentMessage(text: "Alright, talk to you later then!Alright, talk to you later then!Alright, talk to you later then!Alright, talk to you later then!Alright, talk to you later then!Alright, talk to you later then!Alright, talk to you later then!"),
-                      ReceivedImage(imageUrl: "assets/images/high quality img.jpg"),
-                      SentMessage(text: "Alright, talk to you later then!Alright, talk to you later then!Alright, talk to you later then!Alright, talk to you later then!Alright, talk to you later then!Alright, talk to you later then!Alright, talk to you later then!"),
-                      SentMessage(text: "Alright"),
-
+                      Timestamp(dateTime: DateTime.now()),
+                      ReceivedMessage(text: "Hello, I'm Khalid. Here some pictures."),
+                      const ReceivedImage(imageUrl: "assets/images/chat image.png"),
+                      SentMessage(text: "Show me other options"),
+                      const SentImage(imageUrl: "assets/images/chat image.png"),
+                      ReceivedMessage(text: "That's all I can show"),
                       // Add more messages here if needed
                     ],
                   ),
@@ -47,7 +46,6 @@ class Chatbox extends StatelessWidget {
         child: Container(
           height: 60.0, // Adjust the height as needed
           color: Colors.blue, // Customize the color of your bottom app bar
-
         ),
       ),
     );
