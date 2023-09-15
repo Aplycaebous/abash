@@ -29,6 +29,7 @@ class Chatbox extends StatelessWidget {
                       ReceivedMessage(text: "Hello, I'm Khalid. Here some pictures."),
                       const ReceivedImage(imageUrl: "assets/images/chat image.png"),
                       SentMessage(text: "Show me other options"),
+                      const SentImage(imageUrl: "assets/images/chat image 2.png"),
                       ReceivedMessage(text: "That's all I can show"),
                       // Add more messages here if needed
                     ],
