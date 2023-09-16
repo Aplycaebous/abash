@@ -1,54 +1,75 @@
 import 'dart:math';
-import 'package:abash/chatbox/chat-user-avatar.dart';
+import 'package:abash/chatbox/chat-user-info.dart';
 import 'package:flutter/material.dart';
+import 'chat-user-avatar.dart';
 
-class ChatBoxTopBar extends StatelessWidget {
+class ChatBoxTopBar extends StatelessWidget implements PreferredSizeWidget {
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
   @override
   Widget build(BuildContext context) {
-    final screenIconSize = MediaQuery.of(context).size.height * 20 / 800;
-    final sizeBetweenBackButtonAndIcon = min(
-          MediaQuery.of(context).size.height,
-          MediaQuery.of(context).size.width,
-        ) *
-        0.02;
-
-    final shadowColor = Color(0xB2B2B2); // Custom shadow color without opacity
-    final userInfoAndBackButtonWidth =
-        MediaQuery.of(context).size.width * 247 / 800;
+    final backButtonAndUserDetailsWidth =
+        MediaQuery.of(context).size.width * 247 / 360;
 
     return Container(
+      padding: EdgeInsets.only(right: 16),
       decoration: BoxDecoration(
+        color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: shadowColor.withOpacity(0.2), // Set opacity separately
+            color: Colors.grey.withOpacity(0.2),
             spreadRadius: 0,
             blurRadius: 30,
             offset: Offset(0, 10),
-          )
+          ),
         ],
       ),
       child: AppBar(
-        title: SizedBox(
-          width: userInfoAndBackButtonWidth,
-
+        backgroundColor: Colors.white,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        automaticallyImplyLeading: false,
+        title: Container(
+          constraints: BoxConstraints(maxWidth: backButtonAndUserDetailsWidth),
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+
               IconButton(
                 onPressed: () {
                   // Go back
                 },
                 icon: const Icon(Icons.arrow_back),
-                iconSize: screenIconSize,
+                iconSize: MediaQuery.of(context).size.height * 24 / 800,
+
               ),
-              SizedBox(width: sizeBetweenBackButtonAndIcon),
+              SizedBox(
+                width: min(
+                      MediaQuery.of(context).size.height,
+                      MediaQuery.of(context).size.width,
+                    ) *
+                    0.02,
+              ),
               ChatUserAvatar(),
+              SizedBox(
+                width:
+                    MediaQuery.of(context).size.width * (195 - 142 - 45) / 360,
+              ),
+              Expanded(
+                child: ChatUserInfo(
+                  isActive: true,
+                ),
+              ),
             ],
           ),
         ),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        scrolledUnderElevation: 0,
+        actions: <Widget>[
+          IconButton(
+            onPressed: () => {},
+            iconSize: 20 / 800,
+            icon: Image.network("assets/icons/chatbox_call_button.png"),
+          ),
+        ],
       ),
     );
   }
