@@ -4,6 +4,7 @@ class ChatUserAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(5.0),
         decoration: const BoxDecoration(
           color: Colors.white,
           shape: BoxShape.circle,
