@@ -41,6 +41,7 @@ dependencies:
   gradient_borders: ^1.0.0
   flutter_svg: ^2.0.7
   google_fonts: ^5.1.0
+  material_symbols_icons: ^4.2668.0
 
 dev_dependencies:
   flutter_test:
