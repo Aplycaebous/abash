@@ -16,10 +16,11 @@ class SendMessageButton extends StatelessWidget {
                 colors: [Color(0xff5FB4E5), Color(0xff0A8ED9)],
               ),
               borderRadius: BorderRadius.all(Radius.circular(10))),
-          child: Image.network(
-            "assets/icons/send_message.png",
-            height: MediaQuery.of(context).size.width * 24 / 800,
-            width: MediaQuery.of(context).size.width * 24 / 800,
+          child: IconButton(
+            onPressed: () {},
+            icon: Image.network("assets/icons/send_message.png"),
+            iconSize: MediaQuery.of(context).size.width * 24 / 800,
+
             color: Colors.white,
           ),
         ));
