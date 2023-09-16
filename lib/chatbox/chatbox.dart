@@ -1,3 +1,4 @@
+import 'package:abash/chatbox/chatbox-send-message-bar.dart';
 import 'package:abash/chatbox/chatbox-top-bar.dart';
 import 'package:abash/chatbox/received-image.dart';
 import 'package:abash/chatbox/received-message.dart';
@@ -45,13 +46,7 @@ class Chatbox extends StatelessWidget {
           ],
         ),
         // Fixed bottom app bar
-        bottomNavigationBar: BottomAppBar(
-          // Your bottom app bar content here
-          child: Container(
-            height: 60.0, // Adjust the height as needed
-            color: Colors.blue, // Customize the color of your bottom app bar
-          ),
-        ),
+        bottomNavigationBar: ChatBoxSendMessageBar()
       ),
     );
   }
