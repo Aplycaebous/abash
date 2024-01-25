@@ -34,6 +34,7 @@ class _AddedPropertyCardState extends State<AddedPropertyCard> {
               children: [
                 // Image on the left (Replace this with your image widget)
                 ClipRRect(
+
                   borderRadius: BorderRadius.circular(15.0),
                   child: Image.network(
                     widget.propertyData['imageUrl'],
@@ -49,6 +50,7 @@ class _AddedPropertyCardState extends State<AddedPropertyCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
+
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
